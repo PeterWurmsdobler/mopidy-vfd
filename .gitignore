@@ -1,4 +1,6 @@
 *.pyc
+/.idea
+/.venv
 /.coverage
 /.mypy_cache/
 /.pytest_cache/
