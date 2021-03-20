@@ -47,7 +47,7 @@ class CharacterDisplay(metaclass=abc.ABCMeta):
         """Write text on line and at position, all zero indexed."""
 
     def _update_item(self, new: str, line: int, position: int = 0) -> None:
-        limit = self.width - self.margin - 3
+        limit = self.width - self.margin - 4
         if len(new) > limit:
             self.write(new[:limit] + "...", line, position)
         else:
@@ -59,7 +59,7 @@ class CharacterDisplay(metaclass=abc.ABCMeta):
 
     def _update_volume(self, volume: int, line: int) -> None:
         if self.last_status.volume != volume:
-            volume_str = f"{volume}%"
+            volume_str = f"{volume:3}%"
             self.write(volume_str, line, self.width - len(volume_str) - 1)
 
     def update(

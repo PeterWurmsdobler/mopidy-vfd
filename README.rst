@@ -17,14 +17,48 @@ Mopidy-VFD
 Mopidy extension to display track information on a VFD
 
 
+Prerequisites
+=============
+
+Raspbian and Mopidy installation
+
+Follow the instructions on https://docs.mopidy.com/en/latest/installation/raspberrypi/ to install both the Raspberry PI Debian based operating system as well as Mopidy.
+
+PIP support
+
+Raspberry buster comes with python3.7, but not with pip, so::
+
+    sudo apt install python3-pip
+
+SPI support
+
+First, run::
+
+    sudo raspi-config
+
+and enable SPI. The SPI python driver has to be installed::
+
+    sudo python3.7 -m pip install spidev
+
+Nortitake support
+
+For now, until there is a pypi package available::
+
+    sudo apt install git
+    git clone https://github.com/PeterWurmsdobler/noritake.git
+    cd noritake
+    sudo python3.7 ./setup.py install
+
+
 Installation
 ============
 
-Install by running::
+For now, until there is a pypi package available::
 
-    python3 -m pip install Mopidy-VFD
-
-See https://mopidy.com/ext/vfd/ for alternative installation methods.
+    sudo apt install git
+    git clone https://github.com/PeterWurmsdobler/mopidy-vfd.git
+    cd mopidy-vfd
+    sudo python3.7 ./setup.py install
 
 
 Configuration

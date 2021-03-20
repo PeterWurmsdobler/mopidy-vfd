@@ -11,10 +11,11 @@ class DisplayController(object):
     def __init__(self, status_queue, display) -> None:
         self.status_queue = status_queue
         self.display = display
-        self._delay = 1.0 / 30
+        self._delay = 0.2
         self._thread = None
 
     def start(self):
+        log.info("Display update loop starting ...")
         if self._thread is not None:
             return
 
@@ -43,3 +44,4 @@ class DisplayController(object):
                 self.display.update(timsteap, player_status)
 
             time.sleep(self._delay)
+        log.info("Display update loop stopped")
