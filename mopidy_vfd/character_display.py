@@ -51,7 +51,7 @@ class CharacterDisplay(metaclass=abc.ABCMeta):
         if len(new) > limit:
             self.write(new[:limit] + "...", line, position)
         else:
-            self.write(new, line, position)
+            self.write(new.ljust(limit), line, position)
 
     def _update_seconds(self, seconds: float, line: int) -> None:
         timestr = str(timedelta(seconds=int(seconds)))
